@@ -1,11 +1,22 @@
-graph = {
-    'f': ['g', 'i'],
-    'g': ['h'],
-    'h': [],
-    'i': ['g', 'k'],
-    'j': ['i'],
-    'k': []
-}
+# graph = {
+#     'f': ['g', 'i'],
+#     'g': ['h'],
+#     'h': [],
+#     'i': ['g', 'k'],
+#     'j': ['i'],
+#     'k': []
+# }
+
+from platform import java_ver
+
+
+edges = [
+    ['i', 'j'],
+    ['k', 'i'],
+    ['m', 'k'],
+    ['k', 'l'],
+    ['o', 'n']
+]
 
 # def hasPath_recur(graph, src, dst):
 #     if (src == dst):
@@ -16,17 +27,25 @@ graph = {
 #     return False
 
 
-def hasPath_bfs(graph, src, dst):
-    queue = [src]
-    while len(queue) > 0:
-        current = queue.pop(0)
-        print(current, end=" ")
-        if current == dst:
-            return True
-        for neighbor in graph[current]:
-            queue.append(neighbor)
-    return False
-
+# def hasPath_bfs(graph, src, dst):
+#     queue = [src]
+#     while len(queue) > 0:
+#         current = queue.pop(0)
+#         print(current, end=" ")
+#         if current == dst:
+#             return True
+#         for neighbor in graph[current]:
+#             queue.append(neighbor)
+#     return False
 
 #print(hasPath_recur(graph, 'f', 'k'))
-print(hasPath_bfs(graph, 'f', 'k'))
+#print(hasPath_bfs(graph, 'f', 'k'))
+    
+def undirectedPath(edges, src, dst):
+    
+    
+
+
+    return None
+
+
