@@ -1,26 +1,26 @@
-"""
-Recursion, 'use it or lose it', memoization
-Created on July 26, 2022
-@author: Brian Borowski
-"""
+# """
+# Recursion, 'use it or lose it', memoization
+# Created on July 26, 2022
+# @author: Brian Borowski
+# """
 
-def factorial(n):
-    """Computes the factorial of a number using linear recursion."""
-    if n == 0:
-        return 1
-    return n * factorial(n - 1)
+# def factorial(n):
+#     """Computes the factorial of a number using linear recursion."""
+#     if n == 0:
+#         return 1
+#     return n * factorial(n - 1)
 
-def fact_tail(n):
-    """Computes the factorial of a number using tail recursion."""
-    def fact_tail_helper(n, accum):
-        if n == 0:
-            return accum
-        return fact_tail_helper(n - 1, n * accum)
-    return fact_tail_helper(n, 1)
+# def fact_tail(n):
+#     """Computes the factorial of a number using tail recursion."""
+#     def fact_tail_helper(n, accum):
+#         if n == 0:
+#             return accum
+#         return fact_tail_helper(n - 1, n * accum)
+#     return fact_tail_helper(n, 1)
 
-# Test factorial functions.
-for n in range(10):
-    print(factorial(n), fact_tail(n))
+# # Test factorial functions.
+# for n in range(10):
+#     print(factorial(n), fact_tail(n))
 
 # def fib(n):
 #     """Computes the nth Fibonacci number using tree recursion."""
@@ -76,23 +76,23 @@ for n in range(10):
 #     return subset(target - lst[0], lst[1:]) or \
 #            subset(target, lst[1:])
 
-# def subset_with_values(target, lst):
-#     """Determines whether or not it is possible to create the target sum
-#     using values in the list. Values in the list can be positive, negative, or
-#     zero. The function returns a tuple of exactly two items. The first is a
-#     Boolean that indicates True if the sum is possible and False if it's not.
-#     The second element in the tuple is a list of all the values that add up
-#     to make the target sum."""
-#     if target == 0:
-#         return (True, [])
-#     if lst == []:
-#         return (False, [])
-#     use_it = subset_with_values(target - lst[0], lst[1:])
-#     if use_it[0]:
-#         return (True, [lst[0]] + use_it[1])
-#     return subset_with_values(target, lst[1:])
+def subset_with_values(target, lst):
+    """Determines whether or not it is possible to create the target sum
+    using values in the list. Values in the list can be positive, negative, or
+    zero. The function returns a tuple of exactly two items. The first is a
+    Boolean that indicates True if the sum is possible and False if it's not.
+    The second element in the tuple is a list of all the values that add up
+    to make the target sum."""
+    if target == 0:
+        return (True, [])
+    if lst == []:
+        return (False, [])
+    use_it = subset_with_values(target - lst[0], lst[1:])
+    if use_it[0]:
+        return (True, [lst[0]] + use_it[1])
+    return subset_with_values(target, lst[1:])
 
-# print(subset_with_values(5, [3, 1, 2]))
+print(subset_with_values(5, [3, 1, 2]))
 
 # def LCS(s1, s2):
 #     """Returns the length of the longest common subsequence in strings s1 and s2."""
